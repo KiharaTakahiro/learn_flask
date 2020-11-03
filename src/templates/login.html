@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="row">
+  <div class="col">
+    <h1 class="text-center">ログイン画面</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md"></div>
+  <div class="col-md-6">
+    <form>
+      <div class="form-group row">
+        <label for="email" class="col-sm-3 col-form-label">e-mail</label>
+        <div class="col-md-9">
+          <input type="email" id="email" class="form-control" placeholder="emailを入力してください">
+        </div>
+      </div>
+      <div class="form-group row">
+        <label for="passowrd" class="col-sm-3 col-form-label">Password</label>
+        <div class="col-md-9">
+          <input type="passowrd" id="passowrd" class="form-control" placeholder="passowrdを入力してください" aria-describedby="password_help" >
+          <small id="password_help" class="form-text text-muted">3回間違えるとロックされるため注意してください</small>
+        </div>
+      </div>
+      <button type="button" class="btn btn-primary btn-lg btn-block">ログイン</button>
+    </form>
+  </div>
+  <div class="col-md"></div>
+</div>
+{% endblock %}
