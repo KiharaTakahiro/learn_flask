@@ -1,5 +1,14 @@
 {% extends "layout.html" %}
 {% block content %}
-<p>・メニュー</p>
-<p class="indent-text"><a href="{{url_for('user_master.index')}}">ユーザマスタ</a></p>
+<div class="row">
+  <div class="col">
+    <h1 class="text-center">メニュー画面</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <p>・メニュー</p>
+    <p class="indent-text"><a href="{{url_for('user_master.index')}}">ユーザマスタ</a></p>
+  </div>
+</div>
 {% endblock %}
