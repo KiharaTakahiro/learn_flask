@@ -8,7 +8,7 @@ def index():
   return render_template('login.html', title='LOGIN')
 
 # ログイン処理
-@login.route('/login')
+@login.route('/login', methods=['POST'])
 def auth():
   # TODO: 認証する処理を記載する
   return redirect(url_for('menu.index'))

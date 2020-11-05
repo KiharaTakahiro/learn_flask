@@ -1,5 +1,7 @@
-# ユーザに関するロジックを格納する
+import psycopg2
+from src.infra.db_connector import DbConnector
 
-# すべてのユーザ情報を返却する処理
 def find_all_users():
-    return {}
+    db = DbConnector.get_instance()
+    users = db.find('SELECT * FROM users;')
+    return users
