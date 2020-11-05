@@ -44,7 +44,7 @@ class DbConnector():
 
         """
         if self._connection_pool is None:
-            self._connection_pool = psycopg2.pool.SimpleConnectionPool(minconn=2, maxconn=5, database="learn_flask", user="postgres", password="Madb45pk", host="localhost")
+            self._connection_pool = psycopg2.pool.SimpleConnectionPool(minconn=2, maxconn=5, database="learn_flask", user="postgres", password="postgres", host="localhost")
         return self._connection_pool.getconn()
 
     def find(self, sql, params=[], time_out=1000):
