@@ -2,15 +2,9 @@ from flask import Flask, redirect, url_for
 
 app = Flask(__name__)
 
-from route.menu import menu
-from route.login import login
-from route.password import password
-from route.user_master import user_master
+from route import app_route
 
-app.register_blueprint(menu)
-app.register_blueprint(login)
-app.register_blueprint(password)
-app.register_blueprint(user_master)
+app.register_blueprint(app_route)
 
 # faviconがないエラーを解消するためのルート
 @app.route("/favicon.ico")
