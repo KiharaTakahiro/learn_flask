@@ -1,10 +1,12 @@
 from flask import Flask, redirect, url_for
 
 app = Flask(__name__)
+app.secret_key = 'adfadfdafaesfeatrasffdafadfad'
 
 from route import app_route
 
 app.register_blueprint(app_route)
+app.register_blueprint(app_route_auth)
 
 # faviconがないエラーを解消するためのルート
 @app.route("/favicon.ico")

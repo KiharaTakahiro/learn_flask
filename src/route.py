@@ -1,4 +1,4 @@
-""" ルート定義用モジュール
+""" 認証が不要なルート定義用モジュール
     
   メソッドコメントは常に書きたいがroute定義用のファイル
   であることを強調したいため本モジュール内はあえてメソッドコメントは記載しない
@@ -36,19 +36,3 @@ def login_index():
 def login_login():
   # TODO: 認証する処理を記載する
   return redirect(url_for('menu.index'))
-
-# メニュー画面
-@app_route.route('/menu/index')
-def menu_index():
-  return render_template('menu.html', title='MENU')
-
-# パスワードリセット画面
-@app_route.route('/password/index')
-def password_index():
-  return render_template('password.html', title='PASSWORD')
-
-# ユーザマスタ画面
-@app_route.route('/user_master/index')
-def user_master_index():
-  users = find_all_users()
-  return render_template('user_master.html', title='USER MASTER')
