@@ -1,4 +1,5 @@
 import psycopg2.pool
+import controller 
 
 class DbConnector():
   """ DB疎通クラス
@@ -44,10 +45,10 @@ class DbConnector():
 
     """
     if self._connection_pool is None:
-      self._connection_pool = psycopg2.pool.SimpleConnectionPool(minconn=2, maxconn=5, database="learn_flask", user="postgres", password="Madb45pk", host="localhost")
+      self._connection_pool = psycopg2.pool.SimpleConnectionPool(minconn=controller.app.config['DB_MIN_POOL_NUM'], maxconn=controller.app.config['DB_MAX_POOL_NUM'], database=controller.app.config['DB_DATABASE_NAME'], user=controller.app.config['DB_USER'], password=controller.app.config['DB_PASSWORD'], host=controller.app.config['DB_HOST'])
       return self._connection_pool.getconn()
 
-  def find(self, sql, params=[], time_out=1000):
+  def find(self, sql, params=[], time_out=controller.app.config['DB_TIME_OUT']):
     """ SQLをもとにDBからデータを取得する
 
         SQLをもとにすべての結果を取得する

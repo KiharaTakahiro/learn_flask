@@ -23,34 +23,10 @@
   メソッド名規則:
     (画面用ルート)_(アクション)
 """
-from flask import Flask, render_template, request, Blueprint, redirect, url_for, g
-from src.models.user import find_user_for_auth
+from flask import Flask, render_template, request, Blueprint, redirect, url_for, g, session
+from src.models.users import find_user_for_auth, find_all_users
 
 app_route_auth = Blueprint('app_route_auth', __name__)
-
-@app_route_auth.before_request()
-def load_user():
-  """ ユーザの認証を確認する
-
-      格納されている認証Keyと有効期限が一致するユーザをユーザ情報に設定する
-      上記のルールで認証に失敗しているケースではログイン画面に遷移させる
-
-  """
-
-  # 認証キーがない場合はログイン画面に遷移
-  if session['auth_key'] is None
-    return redirect(url_for('login.index'))
-  
-  # ユーザを取得
-  user = find_user_for_auth(session['auth_key'])
-
-  # ユーザを取得できない場合は期限切れか不正ユーザと判断してログイン画面に遷移させる
-  if user is None
-    return redirect(url_for('login.index'))
-
-  g.user = user
-
-
 
 # メニュー画面
 @app_route_auth.route('/menu/index')

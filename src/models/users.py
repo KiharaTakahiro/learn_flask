@@ -1,6 +1,6 @@
 import psycopg2
 import datetime
-from src.infra.db_connector import DbConnector
+from src.common.db_connector import DbConnector
 
 def find_all_users():
   """ ユーザテーブルから全件取得

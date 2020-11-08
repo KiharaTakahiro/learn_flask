@@ -2,8 +2,10 @@ from flask import Flask, redirect, url_for
 
 app = Flask(__name__)
 app.secret_key = 'adfadfdafaesfeatrasffdafadfad'
+app.config.from_pyfile('config.cfg')
 
 from route import app_route
+from route_auth import app_route_auth
 
 app.register_blueprint(app_route)
 app.register_blueprint(app_route_auth)

@@ -34,5 +34,5 @@ def login_index():
 
 @app_route.route('/login/login', methods=['POST'])
 def login_login():
-  # TODO: 認証する処理を記載する
+  request.form['query']
   return redirect(url_for('menu.index'))
