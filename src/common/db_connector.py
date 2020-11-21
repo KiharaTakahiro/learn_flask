@@ -45,6 +45,7 @@ class DbConnector():
 
     """
     if self._connection_pool is None:
+      # TODO: moduleがcontrollerに依存するのはおかしい気もするのでここは見直す
       self._connection_pool = psycopg2.pool.SimpleConnectionPool(minconn=controller.app.config['DB_MIN_POOL_NUM'], maxconn=controller.app.config['DB_MAX_POOL_NUM'], database=controller.app.config['DB_DATABASE_NAME'], user=controller.app.config['DB_USER'], password=controller.app.config['DB_PASSWORD'], host=controller.app.config['DB_HOST'])
       return self._connection_pool.getconn()
 
@@ -69,3 +70,6 @@ class DbConnector():
     except QueryCanceledError as err:
       # TODO: 発生したエラーをログ出力する予定
       print(err)
+      print(sql)
+      print(params)
+      raise
